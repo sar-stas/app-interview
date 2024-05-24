@@ -10,7 +10,6 @@ export class HttpMockInterceptor implements HttpInterceptor {
     if (req.url.endsWith('/api/login') && req.method === 'POST') {
       const { username, password } = req.body;
 
-      debugger
       // Проверка логина и пароля
       if (username === 'admin' && password === 'admin') {
         return of(new HttpResponse({ status: 200, body: { success: true } })).pipe(delay(500));

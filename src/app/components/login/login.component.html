@@ -1,0 +1,9 @@
+<div>
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <label for="username">Логин:</label>
+    <input type="text" id="username" name="username" [(ngModel)]="username" required>
+    <button type="submit" [disabled]="isSubmitting || timer > 0">Отправить</button>
+  </form>
+  <div *ngIf="message" class="message">{{ message }}</div>
+  <div *ngIf="timer > 0">Повторная отправка возможна через {{ timer }} секунд</div>
+</div>

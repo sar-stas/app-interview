@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  private apiUrl = 'https://example.com/api/login'; // Замените на ваш URL
+  private apiUrl = '/api/login';
 
   constructor(private http: HttpClient) {}
 
-  login(username: string): Observable<any> {
-    return this.http.post<any>(this.apiUrl, { username });
+  login(username: string, password: string): Observable<any> {
+    return this.http.post<any>(this.apiUrl, { username, password });
   }
 }

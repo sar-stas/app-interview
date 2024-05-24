@@ -2,8 +2,10 @@
   <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
     <label for="username">Логин:</label>
     <input type="text" id="username" name="username" [(ngModel)]="username" required>
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password" [(ngModel)]="password" required>
     <button type="submit" [disabled]="isSubmitting || timer > 0">Отправить</button>
   </form>
-  <div *ngIf="message" class="message">{{ message }}</div>
+  <div *ngIf="message" class="message" [ngClass]="{'success': isSuccess, 'error': !isSuccess}">{{ message }}</div>
   <div *ngIf="timer > 0">Повторная отправка возможна через {{ timer }} секунд</div>
 </div>
